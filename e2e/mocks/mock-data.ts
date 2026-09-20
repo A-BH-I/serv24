@@ -1,0 +1,283 @@
+export interface MockUser {
+  id: string;
+  name: string;
+  email: string;
+  phone: string;
+  role: 'client' | 'provider' | 'admin';
+  is_verified: boolean;
+  profile_picture?: string;
+}
+
+export const mockUsers: Record<'client' | 'provider' | 'admin', MockUser> = {
+  client: {
+    id: 'usr_client_001',
+    name: 'Rahul Sharma',
+    email: 'client@example.com',
+    phone: '9876543210',
+    role: 'client',
+    is_verified: true,
+  },
+  provider: {
+    id: 'usr_provider_001',
+    name: 'Rajesh Kumar',
+    email: 'provider@example.com',
+    phone: '9876543211',
+    role: 'provider',
+    is_verified: true,
+  },
+  admin: {
+    id: 'usr_admin_001',
+    name: 'Platform Admin',
+    email: 'admin@serv24.in',
+    phone: '9876543212',
+    role: 'admin',
+    is_verified: true,
+  },
+};
+
+export const mockSiteSettings = {
+  platformName: 'Serv24',
+  supportPhone: '1800-123-4567',
+  supportEmail: 'support@serv24.in',
+  currency: 'INR',
+  currencySymbol: '₹',
+  banner_coming_soon_enabled: '0',
+  banner_maintenance_enabled: '0',
+  shopEnabled: '1',
+  serviceFeePercent: '10',
+  logoUrl: '',
+};
+
+export const mockCategories = [
+  {
+    id: 'cat_cleaning',
+    name: 'Home Cleaning',
+    slug: 'cleaning',
+    icon: 'Sparkles',
+    description: 'Professional home and deep cleaning services',
+    sub_services: [
+      { id: 'sub_clean_1', name: 'Deep Home Cleaning', base_price: 799, duration: '3-4 hrs' },
+      { id: 'sub_clean_2', name: 'Kitchen Deep Cleaning', base_price: 499, duration: '2 hrs' },
+      { id: 'sub_clean_3', name: 'Bathroom Sanitization', base_price: 349, duration: '1.5 hrs' },
+    ],
+  },
+  {
+    id: 'cat_appliance',
+    name: 'Appliance Repair',
+    slug: 'appliance-repair',
+    icon: 'Wrench',
+    description: 'Expert repair for AC, refrigerators, and washers',
+    sub_services: [
+      { id: 'sub_app_1', name: 'AC Servicing & Gas Refill', base_price: 599, duration: '1.5 hrs' },
+      { id: 'sub_app_2', name: 'Washing Machine Repair', base_price: 399, duration: '1 hr' },
+    ],
+  },
+  {
+    id: 'cat_plumbing',
+    name: 'Plumbing Services',
+    slug: 'plumbing',
+    icon: 'Droplet',
+    description: 'Leak fixes, pipe fittings, and bath installations',
+    sub_services: [
+      { id: 'sub_plumb_1', name: 'Tap & Shower Installation', base_price: 249, duration: '45 mins' },
+      { id: 'sub_plumb_2', name: 'Drainage Pipe Unclogging', base_price: 399, duration: '1 hr' },
+    ],
+  },
+  {
+    id: 'cat_electrical',
+    name: 'Electrical Repairs',
+    slug: 'electrical',
+    icon: 'Zap',
+    description: 'Wiring, fixtures, switchboards, and fans',
+    sub_services: [
+      { id: 'sub_elec_1', name: 'Ceiling Fan Installation', base_price: 199, duration: '30 mins' },
+      { id: 'sub_elec_2', name: 'Switchboard Wiring Check', base_price: 299, duration: '1 hr' },
+    ],
+  },
+];
+
+export const mockProviders = [
+  {
+    id: 'prov_1',
+    user_id: 'usr_provider_001',
+    name: 'Rajesh Kumar',
+    avatar: '',
+    rating: 4.9,
+    reviews_count: 128,
+    completed_jobs: 142,
+    base_city: 'Mumbai',
+    base_state: 'Maharashtra',
+    is_online: 1,
+    verification_status: 'approved',
+    experience_years: 5,
+    bio: 'Professional certified cleaner with 5+ years of five-star home service experience.',
+    categories: ['Home Cleaning'],
+    services: [
+      { id: 'sub_clean_1', name: 'Deep Home Cleaning', base_price: 799, custom_price: 799, price: 799 },
+      { id: 'sub_clean_2', name: 'Kitchen Deep Cleaning', base_price: 499, custom_price: 499, price: 499 },
+    ],
+  },
+  {
+    id: 'prov_2',
+    user_id: 'usr_provider_002',
+    name: 'Amit Patel',
+    avatar: '',
+    rating: 4.8,
+    reviews_count: 95,
+    completed_jobs: 98,
+    base_city: 'Mumbai',
+    base_state: 'Maharashtra',
+    is_online: 1,
+    verification_status: 'approved',
+    experience_years: 4,
+    bio: 'Expert appliance repair technician specializing in all major brands.',
+    categories: ['Appliance Repair'],
+    services: [
+      { id: 'sub_app_1', name: 'AC Servicing & Gas Refill', base_price: 599, custom_price: 599, price: 599 },
+    ],
+  },
+];
+
+export const mockBookings = [
+  {
+    id: 'bk_1001',
+    booking_number: 'BK-1001',
+    client_id: 'usr_client_001',
+    client_name: 'Rahul Sharma',
+    client_phone: '9876543210',
+    provider_id: 'prov_1',
+    provider_name: 'Rajesh Kumar',
+    category_id: 'cat_cleaning',
+    category_name: 'Home Cleaning',
+    service_name: 'Deep Home Cleaning',
+    sub_service_name: 'Deep Home Cleaning',
+    scheduled_date: '2026-09-25',
+    scheduled_time: '10:00 AM',
+    address: 'Flat 402, Sunshine Apartments, Andheri West, Mumbai, 400053',
+    status: 'pending',
+    total_amount: 799,
+    payment_method: 'cod',
+    payment_status: 'pending',
+    otp_code: '4829',
+    created_at: '2026-09-20T10:00:00Z',
+    status_history: [
+      { status: 'pending', changed_at: '2026-09-20T10:00:00Z', note: 'Booking created by client' },
+    ],
+  },
+  {
+    id: 'bk_1002',
+    booking_number: 'BK-1002',
+    client_id: 'usr_client_001',
+    client_name: 'Rahul Sharma',
+    client_phone: '9876543210',
+    provider_id: 'prov_2',
+    provider_name: 'Amit Patel',
+    category_id: 'cat_appliance',
+    category_name: 'Appliance Repair',
+    sub_service_name: 'AC Servicing & Gas Refill',
+    scheduled_date: '2026-09-18',
+    scheduled_time: '02:00 PM',
+    address: 'Flat 402, Sunshine Apartments, Andheri West, Mumbai, 400053',
+    status: 'completed',
+    total_amount: 599,
+    payment_method: 'online',
+    payment_status: 'paid',
+    otp_code: '1234',
+    created_at: '2026-09-18T09:00:00Z',
+    status_history: [
+      { status: 'pending', changed_at: '2026-09-18T09:00:00Z', note: 'Booking placed' },
+      { status: 'accepted', changed_at: '2026-09-18T09:15:00Z', note: 'Accepted by provider' },
+      { status: 'in_progress', changed_at: '2026-09-18T14:05:00Z', note: 'Job started' },
+      { status: 'completed', changed_at: '2026-09-18T15:30:00Z', note: 'OTP verified & completed' },
+    ],
+  },
+];
+
+export const mockShopProducts = [
+  {
+    id: 'prod_1',
+    name: 'Heavy Duty Impact Drill 650W',
+    slug: 'heavy-duty-impact-drill-650w',
+    description: 'High-power variable speed drill suitable for concrete, wood, and steel.',
+    category_slug: 'tools',
+    category_name: 'Power Tools',
+    price: 2499,
+    original_price: 3299,
+    stock: 18,
+    image: 'https://images.unsplash.com/photo-1504148455328-c376907d081c?w=500&auto=format&fit=crop&q=60',
+    rating: 4.8,
+    reviews_count: 42,
+  },
+  {
+    id: 'prod_2',
+    name: 'Precision Screwdriver Set 32-Piece',
+    slug: 'precision-screwdriver-set-32-piece',
+    description: 'Magnetic CR-V alloy screwdriver set for household and electronic repairs.',
+    category_slug: 'tools',
+    category_name: 'Hand Tools',
+    price: 499,
+    original_price: 799,
+    stock: 50,
+    image: 'https://images.unsplash.com/photo-1581783342308-f792dbdd27c5?w=500&auto=format&fit=crop&q=60',
+    rating: 4.6,
+    reviews_count: 88,
+  },
+  {
+    id: 'prod_3',
+    name: 'Organic Surface Cleaner Liquid 5L',
+    slug: 'organic-surface-cleaner-liquid-5l',
+    description: 'Non-toxic hospital-grade floor disinfectant and deep stain remover.',
+    category_slug: 'cleaning-supplies',
+    category_name: 'Cleaning Supplies',
+    price: 699,
+    original_price: 999,
+    stock: 35,
+    image: 'https://images.unsplash.com/photo-1585421514738-01798e348b17?w=500&auto=format&fit=crop&q=60',
+    rating: 4.9,
+    reviews_count: 110,
+  },
+];
+
+export const mockShopOrders = [
+  {
+    id: 'ord_9021',
+    order_number: 'ORD-9021',
+    client_id: 'usr_client_001',
+    total: 2499,
+    payment_method: 'cod',
+    payment_status: 'pending',
+    delivery_status: 'confirmed',
+    delivery_address: 'Flat 402, Sunshine Apartments, Mumbai, 400053',
+    items: [
+      { product_id: 'prod_1', name: 'Heavy Duty Impact Drill 650W', quantity: 1, price: 2499 },
+    ],
+    created_at: '2026-09-20T11:00:00Z',
+    activity: [
+      { status: 'confirmed', note: 'Order placed with Cash on Delivery', timestamp: '2026-09-20T11:00:00Z' },
+    ],
+  },
+];
+
+export const mockAdminDashboard = {
+  stats: {
+    total_revenue: 185400,
+    total_bookings: 620,
+    active_providers: 45,
+    pending_verifications: 4,
+    total_clients: 1280,
+  },
+  recent_bookings: mockBookings,
+  pending_providers: [
+    {
+      id: 'prov_pending_1',
+      user_id: 'usr_pending_1',
+      name: 'Vikas Mishra',
+      phone: '9812345678',
+      email: 'vikas@example.com',
+      service_category: 'Electrical Repairs',
+      status: 'pending_verification',
+      documents_uploaded: 2,
+      applied_date: '2026-09-19',
+    },
+  ],
+};
