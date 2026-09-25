@@ -27,7 +27,7 @@ function loadSeen(): Set<string> {
   } catch { return new Set(); }
 }
 function saveSeen(s: Set<string>) {
-  try { sessionStorage.setItem(SEEN_KEY, JSON.stringify(Array.from(s))); } catch {}
+  try { sessionStorage.setItem(SEEN_KEY, JSON.stringify(Array.from(s))); } catch { /* ignore */ }
 }
 
 /** Short alert tone via WebAudio – no asset dependency. */
@@ -62,12 +62,12 @@ function playAlertTone(): () => void {
   return () => {
     stopped = true;
     window.clearInterval(interval);
-    try { ctx?.close(); } catch {}
+    try { ctx?.close(); } catch { /* ignore */ }
   };
 }
 
 function vibrate() {
-  try { navigator.vibrate?.([400, 180, 400, 180, 600]); } catch {}
+  try { navigator.vibrate?.([400, 180, 400, 180, 600]); } catch { /* ignore */ }
 }
 
 export function ProviderIncomingJobOverlay() {

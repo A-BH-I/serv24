@@ -44,10 +44,6 @@ export async function setupMockApi(page: Page, overrides?: MockOverrides) {
       return json({ success: true, data }, status);
     };
 
-    const error = (message: string, status = 400) => {
-      return json({ success: false, message }, status);
-    };
-
     // --- SITE SETTINGS ---
     if (path.includes('/settings/public')) {
       return success(currentSettings);

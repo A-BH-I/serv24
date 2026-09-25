@@ -44,7 +44,7 @@ export default function AdminServicesPage() {
       const cats = (res.data as Category[]) || [];
       setCategories(cats);
       if (cats.length > 0 && !selectedCategoryId) setSelectedCategoryId(cats[0].id);
-    } catch {}
+    } catch { /* ignore */ }
   }, []);
 
   const fetchServices = useCallback(async () => {

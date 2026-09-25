@@ -62,7 +62,7 @@ class ApiClient {
     let response: Response;
     try {
       response = await fetch(`${this.baseUrl}${endpoint}`, config);
-    } catch (err) {
+    } catch {
       toast.error('Connection failed', { description: 'Unable to reach the server. Check your internet connection.' });
       throw { status: 0, success: false, message: 'Network error: Unable to connect to the server.' };
     }

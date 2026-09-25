@@ -88,7 +88,7 @@ const DOCUMENT_TYPES = [
 
 export default function ProviderSettingsPage() {
   const [searchParams] = useSearchParams();
-  const { user, updateUser, logout } = useAuth();
+  const { updateUser, logout } = useAuth();
   const { settings: siteSettings } = useSiteSettings();
   const { prefs: notifPrefs, updatePrefs: updateNotifPrefs } = useNotificationPreferences();
   const { t } = useI18n();
@@ -108,7 +108,6 @@ export default function ProviderSettingsPage() {
   const [experience, setExperience] = useState(0);
   const [bio, setBio] = useState('');
   const [languages, setLanguages] = useState<string[]>([]);
-  const [newLang, setNewLang] = useState('');
   const [isEditing, setIsEditing] = useState(false);
   const [providerGender, setProviderGender] = useState('');
   const [providerDob, setProviderDob] = useState('');
@@ -543,13 +542,6 @@ export default function ProviderSettingsPage() {
     }
   };
 
-  const addLanguage = () => {
-    const lang = newLang.trim();
-    if (lang && !languages.includes(lang)) {
-      setLanguages(prev => [...prev, lang]);
-      setNewLang('');
-    }
-  };
 
   const removeService = async (subServiceId: string) => {
     try {

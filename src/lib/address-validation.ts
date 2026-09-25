@@ -13,7 +13,7 @@ export interface AddressInput {
 export type AddressErrors = Partial<Record<keyof AddressInput, string>>;
 
 // Letters, spaces, hyphens, dots; must start with a letter; 2–60 chars total.
-const NAME_RE = /^[A-Za-z][A-Za-z\s.\-]{1,59}$/;
+const NAME_RE = /^[A-Za-z][A-Za-z\s.-]{1,59}$/;
 
 // 6 digits, must NOT start with 0.
 const PIN_RE = /^[1-9][0-9]{5}$/;

@@ -1,18 +1,17 @@
 import { AdminLayout } from '@/components/layouts/AdminLayout';
 import { useState, useCallback, useEffect } from 'react';
 import {
-  Banknote, Search, Filter, Calendar as CalIcon, Download, CheckCircle2,
-  Clock, AlertTriangle, Eye, X, Phone, Mail, User, Hash, ChevronLeft, ChevronRight
+  Banknote, Search, Calendar as CalIcon, Download, CheckCircle2,
+  Clock, AlertTriangle, Eye, X, User, Hash, ChevronLeft, ChevronRight
 } from 'lucide-react';
 import { adminApi } from '@/lib/api';
-import { ApiState, TableSkeleton } from '@/components/ApiState';
+import { TableSkeleton } from '@/components/ApiState';
 import { format } from 'date-fns';
 import { Calendar } from '@/components/ui/calendar';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Drawer, DrawerContent, DrawerHeader, DrawerTitle, DrawerDescription } from '@/components/ui/drawer';
 import { toast } from 'sonner';
 import { exportToExcel } from '@/lib/excel-export';
-import { AdminPagination } from '@/components/AdminPagination';
 
 interface CodBooking {
   id: string;

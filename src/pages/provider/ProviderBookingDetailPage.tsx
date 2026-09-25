@@ -4,7 +4,7 @@ import { ProviderLayout } from '@/components/layouts/ProviderLayout';
 import {
   ArrowLeft, User, Phone, Mail, MapPin, Calendar, IndianRupee,
   CheckCircle2, XCircle, Loader2, MessageSquare, Navigation, AlertCircle,
-  Camera, KeyRound, Upload, Image as ImageIcon, Banknote, Ban
+  Camera, KeyRound, Image as Banknote, Ban
 } from 'lucide-react';
 import { providerApi, api } from '@/lib/api';
 import { toast } from 'sonner';

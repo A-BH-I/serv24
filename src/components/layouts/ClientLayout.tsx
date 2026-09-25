@@ -1,5 +1,5 @@
 import { ReactNode, useCallback } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Home, Search, CalendarDays, User, ShoppingBag } from 'lucide-react';
 import { NotificationBell } from '@/components/NotificationBell';
 import { PullToRefresh } from '@/components/PullToRefresh';

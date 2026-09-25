@@ -5,7 +5,7 @@ import { CalendarDays, ChevronRight, ShoppingBag } from 'lucide-react';
 import { bookingsApi, shopApi, type ShopOrderSummary } from '@/lib/api';
 import { ApiState, CardSkeleton } from '@/components/ApiState';
 import { getBookingBadge, getDeliveryBadge, getPaymentBadge } from '@/lib/status-badges';
-import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
+import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 interface Booking {
   id: string;

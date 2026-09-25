@@ -1,6 +1,6 @@
-import { useState, useCallback } from 'react';
+import { useCallback } from 'react';
 import { ProviderLayout } from '@/components/layouts/ProviderLayout';
-import { Star, MessageSquare, TrendingUp } from 'lucide-react';
+import { Star, MessageSquare } from 'lucide-react';
 import { useApi } from '@/hooks/use-api';
 import { ApiState, CardSkeleton } from '@/components/ApiState';
 import { api, resolveAssetUrl } from '@/lib/api';

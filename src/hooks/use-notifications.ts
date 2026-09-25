@@ -78,11 +78,11 @@ function playNotificationSound() {
     osc2.stop(ctx.currentTime + 0.35);
     // Cleanup
     setTimeout(() => ctx.close(), 500);
-  } catch {}
+  } catch { /* ignore */ }
 }
 
 function vibrateDevice() {
-  try { navigator?.vibrate?.([100, 50, 100]); } catch {}
+  try { navigator?.vibrate?.([100, 50, 100]); } catch { /* ignore */ }
 }
 
 export interface NotificationPreferences {
@@ -110,7 +110,7 @@ export function useNotificationPreferences() {
     try {
       const stored = localStorage.getItem('notification_prefs');
       if (stored) return { ...DEFAULT_PREFS, ...JSON.parse(stored) };
-    } catch {}
+    } catch { /* ignore */ }
     return DEFAULT_PREFS;
   });
 
@@ -137,7 +137,7 @@ export function useNotifications() {
     try {
       const stored = localStorage.getItem('notification_prefs');
       if (stored) prefsRef.current = { ...DEFAULT_PREFS, ...JSON.parse(stored) };
-    } catch {}
+    } catch { /* ignore */ }
   }, []);
 
   const fetch = useCallback(async () => {
@@ -163,7 +163,7 @@ export function useNotifications() {
         // Sound + vibration are the only ambient cues so we don't disrupt the UI.
       }
       prevUnreadRef.current = newCount;
-    } catch {}
+    } catch { /* ignore */ }
   }, []);
 
   const markAsRead = useCallback(async (id: string) => {
@@ -171,7 +171,7 @@ export function useNotifications() {
       await api.patch(`/notifications/${id}/read`);
       setNotifications(prev => prev.map(n => n.id === id ? { ...n, is_read: true } : n));
       setUnreadCount(prev => Math.max(0, prev - 1));
-    } catch {}
+    } catch { /* ignore */ }
   }, []);
 
   const markAllRead = useCallback(async () => {
@@ -179,7 +179,7 @@ export function useNotifications() {
       await api.post('/notifications/read-all');
       setNotifications(prev => prev.map(n => ({ ...n, is_read: true })));
       setUnreadCount(0);
-    } catch {}
+    } catch { /* ignore */ }
   }, []);
 
   // Adaptive polling: 6s while tab visible, 30s when hidden, immediate refetch

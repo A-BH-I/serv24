@@ -4,7 +4,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { useState, useEffect, useCallback } from 'react';
 import {
   MapPin, Mail, Phone, ChevronRight, LogOut, Shield, HelpCircle,
-  Loader2, Camera, Plus, Trash2, X, ArrowLeft, Check, Lock, AlertTriangle, Eye, EyeOff, Pencil, Calendar as CalendarIcon, Volume2
+  Loader2, Camera, Plus, Trash2, ArrowLeft, Check, Lock, AlertTriangle, Eye, EyeOff, Pencil, Calendar as CalendarIcon, Volume2
 } from 'lucide-react';
 import { authApi, addressApi, api, resolveAssetUrl } from '@/lib/api';
 import { useNotificationPreferences } from '@/hooks/use-notifications';

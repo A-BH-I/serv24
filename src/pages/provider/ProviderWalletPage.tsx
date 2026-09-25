@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { ProviderLayout } from '@/components/layouts/ProviderLayout';
-import { Wallet, TrendingUp, TrendingDown, ArrowDownToLine, IndianRupee, Loader2 } from 'lucide-react';
+import { Wallet, TrendingUp, ArrowDownToLine } from 'lucide-react';
 import { providerApi, api } from '@/lib/api';
 import { ApiState, StatSkeleton } from '@/components/ApiState';
 import {

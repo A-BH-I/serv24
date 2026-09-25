@@ -1,5 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect, useRef } from 'react';
 import { providerApi, servicesApi, api, ServiceCategory, SubService } from '@/lib/api';
 import { getStatesNames, getCitiesForState } from '@/lib/india-locations';
 import { sanitizePhone, isValidPhone, phoneErrorMessage } from '@/lib/phone-validation';
@@ -32,7 +31,6 @@ interface Props {
 }
 
 export function ProviderOnboardingWizard({ open, onClose, onComplete }: Props) {
-  const navigate = useNavigate();
   const [step, setStep] = useState(0);
   const [saving, setSaving] = useState(false);
   const [stepSaved, setStepSaved] = useState<Record<number, boolean>>({});
@@ -75,7 +73,6 @@ export function ProviderOnboardingWizard({ open, onClose, onComplete }: Props) {
   const [docFile, setDocFile] = useState<File | null>(null);
   const [docType, setDocType] = useState('');
   const [docNumber, setDocNumber] = useState('');
-  const [uploading, setUploading] = useState(false);
   const [docUploaded, setDocUploaded] = useState(false);
   const [allowedDocTypes, setAllowedDocTypes] = useState<{ key: string; label: string }[]>([]);
 
@@ -286,28 +283,6 @@ export function ProviderOnboardingWizard({ open, onClose, onComplete }: Props) {
     if (!initialLoadDone.current) return;
     setStepSaved(prev => ({ ...prev, [3]: false }));
   }, [schedule]);
-
-  const handleUploadDoc = async () => {
-    if (!docFile) { toast.error('Select a file'); return; }
-    if (!docType) { toast.error('Select a document type'); return; }
-    if (!docNumber.trim()) { toast.error('Document number is required'); return; }
-    setUploading(true);
-    try {
-      const fd = new FormData();
-      fd.append('file', docFile);
-      fd.append('document_type', docType);
-      fd.append('document_number', docNumber.trim());
-      await api.upload('/provider/upload-document', fd);
-      toast.success('Document uploaded. You can now finish setup.');
-      setDocFile(null);
-      setDocNumber('');
-      setDocUploaded(true);
-    } catch (err: unknown) {
-      toast.error((err as { message?: string })?.message || 'Upload failed');
-    } finally {
-      setUploading(false);
-    }
-  };
 
   const toggleService = (id: string) => {
     setSelectedServices(prev =>

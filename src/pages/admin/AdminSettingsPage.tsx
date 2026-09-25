@@ -2,7 +2,7 @@ import { AdminLayout } from '@/components/layouts/AdminLayout';
 import { useState, useCallback, useEffect, useRef, memo } from 'react';
 import {
   Save, Loader2, Camera, Globe, Clock, Bell, IndianRupee, Shield, Smartphone,
-  Mail, MapPin, Phone, Layout, Upload, Megaphone, Send, Search, Pencil, X
+  Mail, Phone, Layout, Upload, Megaphone, Send, Search, Pencil, X
 } from 'lucide-react';
 import { toast } from 'sonner';
 import { useApi } from '@/hooks/use-api';

@@ -61,7 +61,6 @@ export default function BookingPage() {
 
   const [selectedServiceId, setSelectedServiceId] = useState<string>(preselectedServiceId || '');
   const [date, setDate] = useState('');
-  const [time] = useState('');
   const [addressLine, setAddressLine] = useState('');
   const [addrState, setAddrState] = useState('');
   const [city, setCity] = useState('');

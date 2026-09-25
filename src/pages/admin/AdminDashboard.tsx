@@ -3,7 +3,7 @@ import { AdminLayout } from '@/components/layouts/AdminLayout';
 import { Users, Briefcase, Wallet, TrendingUp, AlertTriangle, Clock, Banknote, CreditCard, CalendarDays } from 'lucide-react';
 import { adminApi } from '@/lib/api';
 import { ApiState, StatSkeleton, TableSkeleton } from '@/components/ApiState';
-import { format, subDays, subMonths, startOfMonth } from 'date-fns';
+import { format, subDays, startOfMonth } from 'date-fns';
 import { Calendar } from '@/components/ui/calendar';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Button } from '@/components/ui/button';

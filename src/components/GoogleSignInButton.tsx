@@ -29,7 +29,7 @@ interface Props {
   mode?: 'login' | 'register';
 }
 
-export function GoogleSignInButton({ role = 'client', mode = 'login' }: Props) {
+export function GoogleSignInButton({ role = 'client' }: Props) {
   const [loading, setLoading] = useState(false);
   const [sdkReady, setSdkReady] = useState(false);
   const { settings } = useSiteSettings();

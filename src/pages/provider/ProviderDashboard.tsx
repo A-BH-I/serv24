@@ -2,12 +2,11 @@ import { useState, useEffect, useCallback, useMemo } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ProviderLayout } from '@/components/layouts/ProviderLayout';
 import { ProviderOnboardingChecklist } from '@/components/ProviderOnboardingChecklist';
-import { useAuth } from '@/lib/auth';
 import { providerApi, api } from '@/lib/api';
 import {
   Clock, Briefcase, Star, IndianRupee,
   ToggleLeft, ToggleRight, ChevronRight, Store, Megaphone, ArrowRight,
-  Loader2, AlertTriangle, Activity, Play
+AlertTriangle, Activity, Play
 } from 'lucide-react';
 import { ApiState, CardSkeleton } from '@/components/ApiState';
 import { toast } from 'sonner';
@@ -49,7 +48,6 @@ interface DashboardData {
 }
 
 export default function ProviderDashboard() {
-  const { user } = useAuth();
   const navigate = useNavigate();
   const { settings } = useSiteSettings();
   const { t } = useI18n();

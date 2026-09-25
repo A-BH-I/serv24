@@ -1,6 +1,6 @@
 import { AdminLayout } from '@/components/layouts/AdminLayout';
 import { useState, useCallback, useRef, useEffect } from 'react';
-import { AlertTriangle, HelpCircle, Eye, X, Send, MessageSquare, CheckCircle2, Paperclip, FileText, Image as ImageIcon } from 'lucide-react';
+import { AlertTriangle, HelpCircle, Eye, X, Send, CheckCircle2, Paperclip, FileText, Image as ImageIcon } from 'lucide-react';
 import { useApi } from '@/hooks/use-api';
 import { ApiState, TableSkeleton } from '@/components/ApiState';
 import { adminApi, supportApi, resolveAssetUrl } from '@/lib/api';

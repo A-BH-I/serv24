@@ -28,8 +28,8 @@ export function GoogleAnalytics() {
     document.head.appendChild(script);
 
     window.dataLayer = window.dataLayer || [];
-    window.gtag = function () {
-      window.dataLayer.push(arguments);
+    window.gtag = function (...args: unknown[]) {
+      window.dataLayer.push(args);
     };
     window.gtag('js', new Date());
     window.gtag('config', gaId, { send_page_view: false });

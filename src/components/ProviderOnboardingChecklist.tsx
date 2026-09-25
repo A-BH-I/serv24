@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { providerApi } from '@/lib/api';
 import {
   User, MapPin, Clock, Wrench, FileCheck,
-  ShieldCheck, Loader2, Rocket, PartyPopper, Check
+  Loader2, Rocket, PartyPopper, Check
 } from 'lucide-react';
 import { ProviderOnboardingWizard } from './ProviderOnboardingWizard';
 
